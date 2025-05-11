@@ -1,0 +1,18 @@
+<form method="POST">
+    {% csrf_token %} 
+    <input type="text" name="todo" placeholder="Enter your todo" value="">
+    <input type="submit" value="Add"/>
+</form>
+
+<h1>------------------</h1>
+
+<ol>
+    {% for todo in todos %}
+        <li>
+            {{ todo.text }}
+            <a href="{% url 'edit_todo' todo.id %}">Edit</a>
+            <a href="{% url 'delete_todo' todo.id %}">Delete</a>
+        </li>
+    {% endfor %}
+</ol>
+
