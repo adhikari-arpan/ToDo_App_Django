@@ -1,6 +1,78 @@
-<h1>Edit ToDo</h1>
-<form method="POST" action="{% url 'edit_todo' todo.id %}">
-    {% csrf_token %} 
-    <input type="text" name="todo" placeholder="Enter your todo" value="{{ todo.text }}">
-    <input type="submit" value="Edit"/>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit ToDo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        input[type="submit"] {
+            padding: 12px 24px;
+            background-color: #6366f1;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4f46e5;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            
+            form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit To Do</h1>
+    <form method="POST" action="{% url 'edit_todo' todo.id %}">
+        {% csrf_token %} 
+        <input type="text" name="todo" placeholder="Enter your todo" value="{{ todo.text }}" autofocus>
+        <input type="submit" value="Edit"/>
+    </form>
+</body>
+</html>
