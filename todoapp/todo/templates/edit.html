@@ -1,5 +1,5 @@
-<h1>Edit Note</h1>
-<form method="POST" action="{% url 'edit_note' todo.id %}">
+<h1>Edit ToDo</h1>
+<form method="POST" action="{% url 'edit_todo' todo.id %}">
     {% csrf_token %} 
     <input type="text" name="todo" placeholder="Enter your todo" value="{{ todo.text }}">
     <input type="submit" value="Edit"/>
